@@ -40,7 +40,13 @@ const userData = {
       email: this.state.email,
       password: this.state.password
     };
-this.props.loginUser(userData); 
+this.props.loginUser(userData)
+/*
+.then((res) => {
+console.log("UserID is stored")
+localStorage.setItem("userID", res.userID)
+})
+*/
   };
 render() {
     const { errors } = this.state;
