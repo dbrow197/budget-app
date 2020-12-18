@@ -2,6 +2,13 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
+import Visual1 from '../Visual1';
+import Visual2 from '../Visual2';
+import Visual3 from '../Visual3';
+import InputExpense from '../InputExpense';
+
+import {BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';  
+
 class Dashboard extends Component {
   onLogoutClick = e => {
     e.preventDefault();
@@ -10,17 +17,16 @@ class Dashboard extends Component {
 render() {
     const { user } = this.props.auth;
 return (
-      <div style={{ height: "75vh" }} className="container valign-wrapper">
-        <div className="row">
-          <div className="col s12 center-align">
-            <h4>
-              <b>Hey there,</b> {user.name.split(" ")[0]}
-              <p className="flow-text grey-text text-darken-1">
-                You are logged into a full-stack{" "}
-                <span style={{ fontFamily: "monospace" }}>MERN</span> app 👏
-              </p>
-            </h4>
-            <button
+  <div className="App">  
+   <b>Hey there,</b> {user.name.split(" ")[0]}
+  <Router>  
+    <div className="container">  
+      <div className="row" >  
+        <div className="col-sm-12 btn btn-dark bottom-buffer">  
+          Dashboard
+      </div>  
+          
+      <button
               style={{
                 width: "150px",
                 borderRadius: "3px",
@@ -28,14 +34,46 @@ return (
                 marginTop: "1rem"
               }}
               onClick={this.onLogoutClick}
-              className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+              className="nav-link btn btn-secondary"
             >
               Logout
             </button>
-          </div>
+      </div>  
+      
+      <div className="container-fluid row center top-buffer">   
+       <div className="col-sm-2">  
+        </div>  
+        <div className="col-sm-3">  
+          <Link to={'/Visual1'} className="nav-link btn btn-secondary">Pie</Link>  
+        </div>  
+        <div className="col-sm-3">  
+          <Link to={'/Visual2'} className="nav-link btn btn-secondary">Bar</Link>  
+        </div> 
+        <div className="col-sm-3">  
+          <Link to={'/Visual3'} className="nav-link btn btn-secondary">Line </Link>  
+        </div>     
+        <div className="col-sm-2">  
         </div>
-      </div>
+        
+      </div>  
+    </div>  
+    <div className="container-fluid row center top-buffer">  
+      <Switch>  
+        <Route path='/Visual1' component={Visual1} />  
+        <Route path='/Visual2' component={Visual2} />    
+        <Route path='/Visual3' component={Visual3} />  
+      </Switch>  
+    </div>  
+  </Router>  
+ 
+  <div className="text-box jumbotron">
+              <InputExpense/>
+ 
+            </div>
+ 
+</div> 
     );
+
   }
 }
 Dashboard.propTypes = {
