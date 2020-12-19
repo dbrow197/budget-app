@@ -51,7 +51,7 @@ class InputExpense extends Component {
         }
 
         console.log(expense)
-        axios.post('/expenses/add', expense)
+        axios.post('http://localhost:5000/expenses/add', expense)
             .then(res => {console.log(res.data)
 
             });

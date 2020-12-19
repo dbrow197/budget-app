@@ -51,7 +51,7 @@ class InputMonthly extends Component {
         }
 
         console.log(expense)
-        axios.post('/monthlyBudgets/add', expense)
+        axios.post('http://localhost:5000/monthlyBudgets/add', expense)
             .then(res => {console.log(res.data)
 
             });
@@ -63,7 +63,7 @@ class InputMonthly extends Component {
     return (
          
         <div>
-            <h3>Add a new months Income.</h3>
+            <h3>Add A Paycheck.</h3>
             <form onSubmit={this.onSubmit}>
                 <div className="form-group">
                    
@@ -90,7 +90,7 @@ class InputMonthly extends Component {
                 </div>
 
                 <div className="form-group">
-                    <input type="submit" value="Create Monthly Amount" className= "btn btn-secondary" />
+                    <input type="submit" value="Send it!" className= "btn btn-secondary" />
                 </div>
             </form>
         </div>
