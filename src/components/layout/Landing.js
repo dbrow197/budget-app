@@ -22,7 +22,7 @@ class Landing extends Component {
                   borderRadius: "3px",
                   letterSpacing: "1.5px"
                 }}
-                className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                className="btn btn-dark waves-effect waves-light hoverable accent-3"
               >
                 Register
               </Link>
