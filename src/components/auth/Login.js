@@ -110,7 +110,7 @@ return (
                     marginTop: "1rem"
                   }}
                   type="submit"
-                  className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                  className="btn btn-dark waves-effect waves-light hoverable accent-3"
                 >
                   Login
                 </button>
